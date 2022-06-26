@@ -1,5 +1,3 @@
-//  Copyright © 2019 ReSwift Community. All rights reserved.
-
 import Foundation
 
 /**

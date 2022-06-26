@@ -3,17 +3,17 @@
 //  ReSwift
 //
 //  Created by Benjamin Encz on 11/11/15.
-//  Copyright © 2015 ReSwift Community. All rights reserved.
+//  Copyright © 2015 DigiTales. All rights reserved.
 //
 
 /**
- This class is the default implementation of the `StoreType` protocol. You will use this store in most
+ This class is the default implementation of the `Store` protocol. You will use this store in most
  of your applications. You shouldn't need to implement your own store.
  You initialize the store with a reducer and an initial application state. If your app has multiple
  reducers you can combine them by initializng a `MainReducer` with all of your reducers as an
  argument.
  */
-open class Store<State>: StoreType {
+open class Store<State: StateType>: StoreType {
 
     typealias SubscriptionType = SubscriptionBox<State>
 
@@ -29,23 +29,17 @@ open class Store<State>: StoreType {
         }
     }
 
-    public lazy var dispatchFunction: DispatchFunction! = createDispatchFunction()
+    public var dispatchFunction: DispatchFunction!
 
     private var reducer: Reducer<State>
 
     var subscriptions: Set<SubscriptionType> = []
 
-    private var isDispatching = Synchronized<Bool>(false)
+    private var isDispatching = false
 
     /// Indicates if new subscriptions attempt to apply `skipRepeats` 
     /// by default.
     fileprivate let subscriptionsAutomaticallySkipRepeats: Bool
-
-    public var middleware: [Middleware<State>] {
-        didSet {
-            dispatchFunction = createDispatchFunction()
-        }
-    }
 
     /// Initializes the store with a reducer, an initial state and a list of middleware.
     ///
@@ -67,18 +61,9 @@ open class Store<State>: StoreType {
     ) {
         self.subscriptionsAutomaticallySkipRepeats = automaticallySkipsRepeats
         self.reducer = reducer
-        self.middleware = middleware
 
-        if let state = state {
-            self.state = state
-        } else {
-            dispatch(ReSwiftInit())
-        }
-    }
-
-    private func createDispatchFunction() -> DispatchFunction! {
         // Wrap the dispatch function with all middlewares
-        return middleware
+        self.dispatchFunction = middleware
             .reversed()
             .reduce(
                 { [unowned self] action in
@@ -87,9 +72,15 @@ open class Store<State>: StoreType {
                     // If the store get's deinitialized before the middleware is complete; drop
                     // the action without dispatching.
                     let dispatch: (Action) -> Void = { [weak self] in self?.dispatch($0) }
-                    let getState: () -> State? = { [weak self] in self?.state }
+                    let getState = { [weak self] in self?.state }
                     return middleware(dispatch, getState)(dispatchFunction)
             })
+
+        if let state = state {
+            self.state = state
+        } else {
+            dispatch(ReSwiftInit())
+        }
     }
 
     fileprivate func _subscribe<SelectedState, S: StoreSubscriber>(
@@ -112,7 +103,7 @@ open class Store<State>: StoreType {
 
     open func subscribe<S: StoreSubscriber>(_ subscriber: S)
         where S.StoreSubscriberStateType == State {
-            subscribe(subscriber, transform: nil)
+            _ = subscribe(subscriber, transform: nil)
     }
 
     open func subscribe<SelectedState, S: StoreSubscriber>(
@@ -156,18 +147,18 @@ open class Store<State>: StoreType {
 
     // swiftlint:disable:next identifier_name
     open func _defaultDispatch(action: Action) {
-        guard !isDispatching.value else {
+        guard !isDispatching else {
             raiseFatalError(
                 "ReSwift:ConcurrentMutationError- Action has been dispatched while" +
-                " a previous action is being processed. A reducer" +
+                " a previous action is action is being processed. A reducer" +
                 " is dispatching an action, or ReSwift is used in a concurrent context" +
-                " (e.g. from multiple threads). Action: \(action)"
+                " (e.g. from multiple threads)."
             )
         }
 
-        isDispatching.value { $0 = true }
+        isDispatching = true
         let newState = reducer(action, state)
-        isDispatching.value { $0 = false }
+        isDispatching = false
 
         state = newState
     }
@@ -236,9 +227,9 @@ extension Store where State: Equatable {
     open func subscribe<S: StoreSubscriber>(_ subscriber: S)
         where S.StoreSubscriberStateType == State {
             guard subscriptionsAutomaticallySkipRepeats else {
-                subscribe(subscriber, transform: nil)
+                _ = subscribe(subscriber, transform: nil)
                 return
             }
-            subscribe(subscriber, transform: { $0.skipRepeats() })
+            _ = subscribe(subscriber, transform: { $0.skipRepeats() })
     }
 }

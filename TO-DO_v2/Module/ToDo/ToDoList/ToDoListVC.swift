@@ -7,6 +7,7 @@
 
 import UIKit
 import ReSwift
+import ReSwiftRouter
 
 final class ToDoListVC: UIViewController {
 
@@ -41,6 +42,12 @@ extension ToDoListVC: StoreSubscriber {
         (view as? ToDoListView)?.reload()   // delete insert rows have to be use to implement animations
     }
 
+}
+
+extension ToDoListVC: Routable {
+
+    static let identifier = "ToDoListVC"
+    
 }
 
 extension ToDoListVC: UITableViewDelegate {

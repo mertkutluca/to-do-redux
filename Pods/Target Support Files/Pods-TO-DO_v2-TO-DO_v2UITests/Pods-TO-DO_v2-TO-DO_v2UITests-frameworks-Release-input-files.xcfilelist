@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-TO-DO_v2-TO-DO_v2UITests/Pods-TO-DO_v2-TO-DO_v2UITests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework
+${BUILT_PRODUCTS_DIR}/ReSwiftRouter/ReSwiftRouter.framework
