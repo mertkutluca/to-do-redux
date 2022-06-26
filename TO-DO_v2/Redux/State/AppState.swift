@@ -8,5 +8,5 @@
 import ReSwift
 
 struct AppState {
-    var todos: [ToDo] = []
+    var todos: [ToDo] = [ToDo.dummy(id: 1), ToDo.dummy(id: 2), ToDo.dummy(id: 3), ToDo.dummy(id: 4), ToDo.dummy(id: 5), ToDo.dummy(id: 6), ToDo.dummy(id: 7), ToDo.dummy(id: 8), ToDo.dummy(id: 9)]
 }

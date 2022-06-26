@@ -24,6 +24,7 @@
 		B8E3ACC62868710D0034E45C /* AddTodoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E3ACC52868710D0034E45C /* AddTodoAction.swift */; };
 		B8E3ACC82868715A0034E45C /* RemoveToDoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E3ACC72868715A0034E45C /* RemoveToDoAction.swift */; };
 		B8E3ACCA2868717B0034E45C /* UpdateToDoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E3ACC92868717B0034E45C /* UpdateToDoAction.swift */; };
+		B8E3ACCC286887A30034E45C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E3ACCB286887A30034E45C /* App.swift */; };
 		CA1DB20CCCF888B9AB8D76FC /* Pods_TO_DO_v2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34584FBF16C84D3964482E85 /* Pods_TO_DO_v2Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		B8E3ACC52868710D0034E45C /* AddTodoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoAction.swift; sourceTree = "<group>"; };
 		B8E3ACC72868715A0034E45C /* RemoveToDoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveToDoAction.swift; sourceTree = "<group>"; };
 		B8E3ACC92868717B0034E45C /* UpdateToDoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateToDoAction.swift; sourceTree = "<group>"; };
+		B8E3ACCB286887A30034E45C /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		C50726FED1F3229F50E0547D /* Pods-TO-DO_v2-TO-DO_v2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TO-DO_v2-TO-DO_v2UITests.release.xcconfig"; path = "Target Support Files/Pods-TO-DO_v2-TO-DO_v2UITests/Pods-TO-DO_v2-TO-DO_v2UITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,11 +180,12 @@
 		B842EB3E2863AF4100141D91 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				B842EB1C2863AE3E00141D91 /* Info.plist */,
+				B8E3ACCB286887A30034E45C /* App.swift */,
 				B842EB0E2863AE2900141D91 /* AppDelegate.swift */,
 				B842EB102863AE2900141D91 /* SceneDelegate.swift */,
 				B842EB172863AE3E00141D91 /* Assets.xcassets */,
 				B842EB192863AE3E00141D91 /* LaunchScreen.storyboard */,
-				B842EB1C2863AE3E00141D91 /* Info.plist */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 			files = (
 				B8E3ACBD28686EAA0034E45C /* ToDoReducer.swift in Sources */,
 				B842EB0F2863AE2900141D91 /* AppDelegate.swift in Sources */,
+				B8E3ACCC286887A30034E45C /* App.swift in Sources */,
 				B8E3ACCA2868717B0034E45C /* UpdateToDoAction.swift in Sources */,
 				B8E3ACC328686F530034E45C /* AppState.swift in Sources */,
 				B8E3ACC62868710D0034E45C /* AddTodoAction.swift in Sources */,

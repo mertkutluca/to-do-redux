@@ -9,11 +9,14 @@ import UIKit
 
 final class ToDoListView: UIView {
 
+    weak var delegate: UITableViewDelegate?
+    weak var dataSource: UITableViewDataSource?
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.delegate = delegate
+        tableView.dataSource = dataSource
 
         return tableView
     }()
@@ -38,27 +41,9 @@ final class ToDoListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-}
-
-extension ToDoListView: UITableViewDelegate {
-
-}
-
-extension ToDoListView: UITableViewDataSource {
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "\(indexPath.row)"
-
-        return cell
+    func reload() {
+        print("Reload")
+        tableView.reloadData()
     }
 
 }

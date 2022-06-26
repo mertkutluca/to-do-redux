@@ -11,3 +11,11 @@ struct ToDo {
     let title: String
     let desc: String
 }
+
+extension ToDo {
+
+    static func dummy(id: Int) -> ToDo {
+        return ToDo(title: "title\(id)", desc: "description\(id)")
+    }
+    
+}

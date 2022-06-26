@@ -11,16 +11,16 @@ func toDoReducer(action: Action, state: AppState?) -> AppState {
     var state = state ?? AppState()
 
     switch action {
-    case _ as AddToDoAction:
-        state.todos.append((action as! AddToDoAction).toDoToAdd)
-    case _ as RemoveToDoAction:
+    case let addAction as AddToDoAction:
+        state.todos.append(addAction.toDoToAdd)
+    case let removeAction as RemoveToDoAction:
         state.todos.removeAll(where: {
-            $0.title == (action as! RemoveToDoAction).title
+            $0.title == removeAction.title
         })
     case _ as UpdateToDoAction:
         fatalError()
     default:
-        print("default deffff")
+        break
     }
 
     return state
