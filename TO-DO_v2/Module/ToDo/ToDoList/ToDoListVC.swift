@@ -58,6 +58,10 @@ extension ToDoListVC: UITableViewDelegate {
         }
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.present(ToDoDetailVC(), animated: true)
+    }
+
 }
 
 extension ToDoListVC: UITableViewDataSource {

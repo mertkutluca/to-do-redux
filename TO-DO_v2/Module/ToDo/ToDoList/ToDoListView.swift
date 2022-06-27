@@ -17,6 +17,7 @@ final class ToDoListView: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = delegate
         tableView.dataSource = dataSource
+        tableView.backgroundColor = .systemBackground
 
         return tableView
     }()
@@ -24,6 +25,7 @@ final class ToDoListView: UIView {
     public override func didMoveToWindow() {
         super.didMoveToWindow()
 
+        backgroundColor = .systemBackground
         addSubview(tableView)
         NSLayoutConstraint.activate([
             leadingAnchor.constraint(equalTo: tableView.leadingAnchor),
@@ -31,14 +33,6 @@ final class ToDoListView: UIView {
             trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
             bottomAnchor.constraint(equalTo: tableView.bottomAnchor),
         ])
-    }
-
-    public override init(frame: CGRect) {
-      super.init(frame: frame)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     func reload() {
