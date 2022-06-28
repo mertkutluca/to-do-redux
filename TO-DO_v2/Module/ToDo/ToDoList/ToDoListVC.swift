@@ -44,11 +44,11 @@ extension ToDoListVC: StoreSubscriber {
 
 }
 
-extension ToDoListVC: Routable {
-
-    static let identifier = "ToDoListVC"
-    
-}
+//extension ToDoListVC: Routable {
+//
+//    static let identifier = "ToDoListVC"
+//
+//}
 
 extension ToDoListVC: UITableViewDelegate {
 
@@ -59,7 +59,12 @@ extension ToDoListVC: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.present(ToDoDetailVC(), animated: true)
+        self.navigationController?.pushViewController(ToDoDetailVC(), animated: true)
+
+        // TODO: remove this and navigate with uikit, dummy reswiftrouter
+//        app.mainStore.dispatch(
+//            SetRouteAction(["ToDoNavigationController", ToDoDetailVC.identifier])
+//        )
     }
 
 }

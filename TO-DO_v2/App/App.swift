@@ -23,14 +23,16 @@ final class App: NSObject {
     var toDoListVC: ToDoListVC!
     var profileVC: ProfileVC!
 
+    var toDoNavigationVC: UINavigationController!
+
     func start(with window: UIWindow) {
         let tabBarVC = UITabBarController()
         toDoListVC = ToDoListVC()
         profileVC = ProfileVC()
         toDoListVC.title = "To Do List"
         profileVC.title = "Profile"
-
-        tabBarVC.viewControllers = [toDoListVC, profileVC]
+        toDoNavigationVC = ToDoNavigationController(rootViewController: toDoListVC)
+        tabBarVC.viewControllers = [toDoNavigationVC, profileVC]
         tabBarVC.delegate = self
         rootVC = tabBarVC
 
@@ -48,9 +50,9 @@ extension App: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController,
         shouldSelect viewController: UIViewController) -> Bool {
 
-        if viewController is ToDoListVC {
+        if viewController is ToDoNavigationController {
             mainStore.dispatch(
-                SetRouteAction(["TabBarViewController", ToDoListVC.identifier])
+                SetRouteAction(["TabBarViewController", ToDoNavigationController.identifier])
             )
         } else if viewController is ProfileVC {
             mainStore.dispatch(

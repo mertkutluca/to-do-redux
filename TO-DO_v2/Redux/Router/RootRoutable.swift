@@ -30,5 +30,10 @@ final class RootRoutable: Routable {
         completionHandler: @escaping RoutingCompletionHandler) {
             completionHandler()
     }
+
+    func changeRouteSegment(_ from: RouteElementIdentifier, to: RouteElementIdentifier, animated: Bool, completionHandler: @escaping RoutingCompletionHandler) -> Routable {
+        completionHandler()
+        return self.routable
+    }
     
 }

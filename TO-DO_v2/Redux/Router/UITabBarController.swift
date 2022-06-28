@@ -14,7 +14,7 @@ extension UITabBarController: Routable {
         to: RouteElementIdentifier,
         animated: Bool,
         completionHandler: @escaping RoutingCompletionHandler) -> Routable {
-            if (to == ToDoListVC.identifier) {
+            if (to == ToDoNavigationController.identifier) {
                 selectedIndex = 0
                 completionHandler()
                 return viewControllers![0] as! Routable
@@ -31,7 +31,7 @@ extension UITabBarController: Routable {
         _ routeElementIdentifier: RouteElementIdentifier,
         animated: Bool,
         completionHandler: @escaping RoutingCompletionHandler) -> Routable {
-            if (routeElementIdentifier == ToDoListVC.identifier) {
+            if (routeElementIdentifier == ToDoNavigationController.identifier) {
                 selectedIndex = 0
                 completionHandler()
                 return viewControllers![0] as! Routable

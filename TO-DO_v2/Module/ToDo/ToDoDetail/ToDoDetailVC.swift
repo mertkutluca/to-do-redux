@@ -6,11 +6,18 @@
 //
 
 import UIKit
+import ReSwiftRouter
 
 final class ToDoDetailVC: UIViewController {
 
     override func loadView() {
         super.loadView()
         view = ToDoDetailView()
+        title = "To Do Detail"
     }
+
+}
+
+extension ToDoDetailVC: Routable {
+    static let identifier = "ToDoDetailVC"
 }

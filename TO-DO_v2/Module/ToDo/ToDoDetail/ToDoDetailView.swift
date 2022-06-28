@@ -13,6 +13,7 @@ final class ToDoDetailView: UIView {
         let textField: UITextField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints  = false
         textField.placeholder = "Title"
+        textField.addBorder()
 
         return textField
     }()
@@ -21,6 +22,7 @@ final class ToDoDetailView: UIView {
         let textField: UITextField = UITextField(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
         textField.translatesAutoresizingMaskIntoConstraints  = false
         textField.placeholder = "Description"
+        textField.addBorder()
 
         return textField
     }()
@@ -36,7 +38,7 @@ final class ToDoDetailView: UIView {
             titleField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             titleField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             titleField.heightAnchor.constraint(equalToConstant: 48),
-            titleField.topAnchor.constraint(equalTo: topAnchor, constant: 24),
+            titleField.topAnchor.constraint(equalTo: topAnchor, constant: 128),
 
             descriptionField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             descriptionField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
