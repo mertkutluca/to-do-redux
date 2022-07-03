@@ -8,7 +8,12 @@
 import ReSwift
 
 struct UpdateToDoAction: Action {
+    let id: String
     let newTitle: String
     let newDesc: String
+
+    var updatedToDo: ToDo {
+        return ToDo(id: id, title: newTitle, desc: newDesc)
+    }
 }
 

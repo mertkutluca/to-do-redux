@@ -8,8 +8,19 @@
 import ReSwift
 import ReSwiftRouter
 
+fileprivate let initialToDosForTest: [ToDo] = [
+    ToDo.dummy(index: 1),
+    ToDo.dummy(index: 2),
+    ToDo.dummy(index: 3),
+    ToDo.dummy(index: 4),
+    ToDo.dummy(index: 5),
+    ToDo.dummy(index: 6),
+    ToDo.dummy(index: 7),
+    ToDo.dummy(index: 8),
+    ToDo.dummy(index: 9)
+]
+
 func AppReducer(action: Action, state: AppState?) -> AppState {
-    let initialToDosForTest: [ToDo] = [ToDo.dummy(id: 1), ToDo.dummy(id: 2), ToDo.dummy(id: 3), ToDo.dummy(id: 4), ToDo.dummy(id: 5), ToDo.dummy(id: 6), ToDo.dummy(id: 7), ToDo.dummy(id: 8), ToDo.dummy(id: 9)]
     return AppState(
         todos: toDoReducer(action: action, todos: state?.todos ?? initialToDosForTest),
         navigationState: NavigationReducer.handleAction(action, state: state?.navigationState)
@@ -24,10 +35,13 @@ func toDoReducer(action: Action, todos: [ToDo]?) -> [ToDo] {
         _todos.append(addAction.toDoToAdd)
     case let removeAction as RemoveToDoAction:
         _todos.removeAll(where: {
-            $0.title == removeAction.title
+            $0.id == removeAction.id
         })
-    case _ as UpdateToDoAction:
-        fatalError()
+    case let updateAction as UpdateToDoAction:
+        _todos.removeAll(where: {
+            $0.id == updateAction.id
+        })
+        _todos.append(updateAction.updatedToDo)
     default:
         break
     }

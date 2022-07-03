@@ -8,5 +8,5 @@
 import ReSwift
 
 struct RemoveToDoAction: Action {
-    let title: String
+    let id: String
 }

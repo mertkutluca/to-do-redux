@@ -19,6 +19,8 @@ final class ToDoListVC: UIViewController {
         v.dataSource = self
 
         view = v
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +33,9 @@ final class ToDoListVC: UIViewController {
         app.mainStore.unsubscribe(self)
     }
 
+    @objc private func addTapped() {
+        self.navigationController?.pushViewController(ToDoDetailVC(), animated: true)
+    }
 }
 
 extension ToDoListVC: StoreSubscriber {
@@ -54,12 +59,12 @@ extension ToDoListVC: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            app.mainStore.dispatch(RemoveToDoAction(title: todos[indexPath.row].title))
+            app.mainStore.dispatch(RemoveToDoAction(id: todos[indexPath.row].id))
         }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(ToDoDetailVC(), animated: true)
+        self.navigationController?.pushViewController(ToDoDetailVC(id: todos[indexPath.row].id), animated: true)
 
         // TODO: remove this and navigate with uikit, dummy reswiftrouter
 //        app.mainStore.dispatch(
