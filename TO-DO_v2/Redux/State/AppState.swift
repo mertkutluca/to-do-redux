@@ -5,9 +5,7 @@
 //  Created by mert.kutluca on 26.06.2022.
 //
 
-import ReSwift
-
-struct AppState: StateType {
+struct AppState: State {
     var todos: [ToDo] = []
 //    var navigationState: NavigationState = NavigationState()
 }

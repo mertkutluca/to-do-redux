@@ -6,7 +6,6 @@ target 'TO-DO_v2' do
   use_frameworks!
 
   # Pods for TO-DO_v2
-  pod 'ReSwift', '~> 5.0.0'
 
   target 'TO-DO_v2Tests' do
     inherit! :search_paths

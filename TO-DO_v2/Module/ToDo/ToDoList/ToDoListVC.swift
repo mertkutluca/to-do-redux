@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ReSwift
 
 final class ToDoListVC: UIViewController {
 
@@ -41,8 +40,8 @@ extension ToDoListVC: StoreSubscriber {
 
     typealias StoreSubscriberStateType = AppState
 
-    func newState(state: AppState) {
-        todos = state.todos
+    func newState(state: State) {
+        todos = app.mainStore.state?.todos ?? []
         (view as? ToDoListView)?.reload()   // delete insert rows have to be use to implement animations
     }
 

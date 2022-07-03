@@ -6,15 +6,33 @@
 //
 
 import UIKit
-import ReSwift
 
 let app: App = App()
 
 final class App: NSObject {
 
+    // Has to be changed with db result some similar thing in real implementation
+    private static var initialState: AppState {
+        var state = AppState()
+        state.todos = [
+            ToDo.dummy(index: 1),
+            ToDo.dummy(index: 2),
+            ToDo.dummy(index: 3),
+            ToDo.dummy(index: 4),
+            ToDo.dummy(index: 5),
+            ToDo.dummy(index: 6),
+            ToDo.dummy(index: 7),
+            ToDo.dummy(index: 8),
+            ToDo.dummy(index: 9)
+        ]
+
+        return state
+    }
+
+
     let mainStore = Store<AppState>(
         reducer: AppReducer,
-        state: nil
+        state: App.initialState
     )
 
     var toDoListVC: ToDoListVC!

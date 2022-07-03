@@ -25,7 +25,7 @@ final class ToDoDetailVC: UIViewController {
         title = "To Do Detail"
         let v = ToDoDetailView()
 
-        if let todo = app.mainStore.state.todos.first(where: { $0.id == self.id }) {
+        if let todo = app.mainStore.state?.todos.first(where: { $0.id == self.id }) {
             v.setup(title: todo.title, desc: todo.desc)
         }
 

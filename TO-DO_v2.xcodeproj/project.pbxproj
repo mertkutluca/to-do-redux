@@ -16,6 +16,7 @@
 		B842EB262863AE4000141D91 /* TO_DO_v2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842EB252863AE4000141D91 /* TO_DO_v2Tests.swift */; };
 		B842EB302863AE4000141D91 /* TO_DO_v2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842EB2F2863AE4000141D91 /* TO_DO_v2UITests.swift */; };
 		B842EB322863AE4000141D91 /* TO_DO_v2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B842EB312863AE4000141D91 /* TO_DO_v2UITestsLaunchTests.swift */; };
+		B87252CA2871A41B00CEA6F3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87252C92871A41B00CEA6F3 /* Store.swift */; };
 		B8B0A58C286B8CCB007007D9 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0A58B286B8CCB007007D9 /* UIView.swift */; };
 		B8B0A58E286B934C007007D9 /* ToDoNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0A58D286B934C007007D9 /* ToDoNavigationController.swift */; };
 		B8B400B42863B5F000A4EDB0 /* ToDoListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B400B32863B5F000A4EDB0 /* ToDoListVC.swift */; };
@@ -71,6 +72,7 @@
 		B842EB2B2863AE4000141D91 /* TO-DO_v2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TO-DO_v2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B842EB2F2863AE4000141D91 /* TO_DO_v2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TO_DO_v2UITests.swift; sourceTree = "<group>"; };
 		B842EB312863AE4000141D91 /* TO_DO_v2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TO_DO_v2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B87252C92871A41B00CEA6F3 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		B8B0A58B286B8CCB007007D9 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B8B0A58D286B934C007007D9 /* ToDoNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoNavigationController.swift; sourceTree = "<group>"; };
 		B8B400B32863B5F000A4EDB0 /* ToDoListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListVC.swift; sourceTree = "<group>"; };
@@ -203,6 +205,14 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		B87252C82871A2B800CEA6F3 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				B87252C92871A41B00CEA6F3 /* Store.swift */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
 		B8B0A589286B8C9A007007D9 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				B8E3ACC428686FF50034E45C /* Action */,
+				B87252C82871A2B800CEA6F3 /* Lib */,
 				B8E3ACBF28686F130034E45C /* Model */,
 				B8E3ACBB28686E9C0034E45C /* Reducer */,
 				B8E3ACD42868E8370034E45C /* Router */,
@@ -329,7 +340,6 @@
 				B842EB072863AE2900141D91 /* Sources */,
 				B842EB082863AE2900141D91 /* Frameworks */,
 				B842EB092863AE2900141D91 /* Resources */,
-				4998C4D4A174D5A6015C8470 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -367,7 +377,6 @@
 				B842EB272863AE4000141D91 /* Sources */,
 				B842EB282863AE4000141D91 /* Frameworks */,
 				B842EB292863AE4000141D91 /* Resources */,
-				DF4713B4FDC41A234EEF58DC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -471,23 +480,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4998C4D4A174D5A6015C8470 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TO-DO_v2/Pods-TO-DO_v2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TO-DO_v2/Pods-TO-DO_v2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TO-DO_v2/Pods-TO-DO_v2-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DD9FFDE72A017CFA7E83FCE1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -508,23 +500,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DF4713B4FDC41A234EEF58DC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TO-DO_v2-TO-DO_v2UITests/Pods-TO-DO_v2-TO-DO_v2UITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TO-DO_v2-TO-DO_v2UITests/Pods-TO-DO_v2-TO-DO_v2UITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TO-DO_v2-TO-DO_v2UITests/Pods-TO-DO_v2-TO-DO_v2UITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F7FF8F9CB0D7164F9E512492 /* [CP] Check Pods Manifest.lock */ = {
@@ -559,6 +534,7 @@
 				B8B0A58E286B934C007007D9 /* ToDoNavigationController.swift in Sources */,
 				B8E3ACBD28686EAA0034E45C /* ToDoReducer.swift in Sources */,
 				B8F8F647286A5083007083B1 /* ToDoDetailVC.swift in Sources */,
+				B87252CA2871A41B00CEA6F3 /* Store.swift in Sources */,
 				B842EB0F2863AE2900141D91 /* AppDelegate.swift in Sources */,
 				B8E3ACCC286887A30034E45C /* App.swift in Sources */,
 				B8F8F645286A4DCA007083B1 /* ToDoDetailView.swift in Sources */,
