@@ -7,7 +7,6 @@
 
 import UIKit
 import ReSwift
-import ReSwiftRouter
 
 let app: App = App()
 
@@ -18,8 +17,6 @@ final class App: NSObject {
         state: nil
     )
 
-    var router: Router<AppState>!
-    var rootVC: Routable!
     var toDoListVC: ToDoListVC!
     var profileVC: ProfileVC!
 
@@ -33,34 +30,8 @@ final class App: NSObject {
         profileVC.title = "Profile"
         toDoNavigationVC = ToDoNavigationController(rootViewController: toDoListVC)
         tabBarVC.viewControllers = [toDoNavigationVC, profileVC]
-        tabBarVC.delegate = self
-        rootVC = tabBarVC
-
-        router = Router(store: mainStore, rootRoutable: RootRoutable(routable: rootVC)) { state in
-            state.select { $0.navigationState }
-        }
 
         window.rootViewController = tabBarVC
-    }
-
-}
-
-extension App: UITabBarControllerDelegate {
-
-    func tabBarController(_ tabBarController: UITabBarController,
-        shouldSelect viewController: UIViewController) -> Bool {
-
-        if viewController is ToDoNavigationController {
-            mainStore.dispatch(
-                SetRouteAction(["TabBarViewController", ToDoNavigationController.identifier])
-            )
-        } else if viewController is ProfileVC {
-            mainStore.dispatch(
-                SetRouteAction(["TabBarViewController", ProfileVC.identifier])
-            )
-        }
-
-        return false
     }
 
 }

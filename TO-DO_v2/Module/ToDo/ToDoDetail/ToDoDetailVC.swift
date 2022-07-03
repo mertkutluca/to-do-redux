@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ReSwiftRouter
 
 final class ToDoDetailVC: UIViewController {
 
@@ -60,8 +59,4 @@ extension ToDoDetailVC: ToDoDetailViewUserInteraction {
         }
     }
 
-}
-
-extension ToDoDetailVC: Routable {
-    static let identifier = "ToDoDetailVC"
 }

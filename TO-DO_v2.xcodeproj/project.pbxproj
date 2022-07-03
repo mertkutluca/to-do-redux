@@ -29,8 +29,6 @@
 		B8E3ACCC286887A30034E45C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E3ACCB286887A30034E45C /* App.swift */; };
 		B8E3ACD12868E5970034E45C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E3ACD02868E5970034E45C /* ProfileView.swift */; };
 		B8E3ACD32868E65C0034E45C /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E3ACD22868E65C0034E45C /* ProfileVC.swift */; };
-		B8E3ACD62868E8510034E45C /* RootRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E3ACD52868E8510034E45C /* RootRoutable.swift */; };
-		B8E3ACD82868E9FF0034E45C /* UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E3ACD72868E9FF0034E45C /* UITabBarController.swift */; };
 		B8F8F645286A4DCA007083B1 /* ToDoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8F644286A4DCA007083B1 /* ToDoDetailView.swift */; };
 		B8F8F647286A5083007083B1 /* ToDoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8F646286A5083007083B1 /* ToDoDetailVC.swift */; };
 		CA1DB20CCCF888B9AB8D76FC /* Pods_TO_DO_v2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34584FBF16C84D3964482E85 /* Pods_TO_DO_v2Tests.framework */; };
@@ -86,8 +84,6 @@
 		B8E3ACCB286887A30034E45C /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		B8E3ACD02868E5970034E45C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B8E3ACD22868E65C0034E45C /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
-		B8E3ACD52868E8510034E45C /* RootRoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRoutable.swift; sourceTree = "<group>"; };
-		B8E3ACD72868E9FF0034E45C /* UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarController.swift; sourceTree = "<group>"; };
 		B8F8F644286A4DCA007083B1 /* ToDoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDetailView.swift; sourceTree = "<group>"; };
 		B8F8F646286A5083007083B1 /* ToDoDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDetailVC.swift; sourceTree = "<group>"; };
 		C50726FED1F3229F50E0547D /* Pods-TO-DO_v2-TO-DO_v2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TO-DO_v2-TO-DO_v2UITests.release.xcconfig"; path = "Target Support Files/Pods-TO-DO_v2-TO-DO_v2UITests/Pods-TO-DO_v2-TO-DO_v2UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -309,8 +305,6 @@
 		B8E3ACD42868E8370034E45C /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				B8E3ACD52868E8510034E45C /* RootRoutable.swift */,
-				B8E3ACD72868E9FF0034E45C /* UITabBarController.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -574,11 +568,9 @@
 				B8E3ACC62868710D0034E45C /* AddTodoAction.swift in Sources */,
 				B842EB112863AE2900141D91 /* SceneDelegate.swift in Sources */,
 				B8E3ACD32868E65C0034E45C /* ProfileVC.swift in Sources */,
-				B8E3ACD62868E8510034E45C /* RootRoutable.swift in Sources */,
 				B8E3ACC128686F220034E45C /* ToDo.swift in Sources */,
 				B8E3ACC82868715A0034E45C /* RemoveToDoAction.swift in Sources */,
 				B8B400B62863B62C00A4EDB0 /* ToDoListView.swift in Sources */,
-				B8E3ACD82868E9FF0034E45C /* UITabBarController.swift in Sources */,
 				B8B0A58C286B8CCB007007D9 /* UIView.swift in Sources */,
 				B8B400B42863B5F000A4EDB0 /* ToDoListVC.swift in Sources */,
 			);

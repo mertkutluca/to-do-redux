@@ -6,9 +6,8 @@
 //
 
 import ReSwift
-import ReSwiftRouter
 
 struct AppState: StateType {
     var todos: [ToDo] = []
-    var navigationState: NavigationState = NavigationState()
+//    var navigationState: NavigationState = NavigationState()
 }

@@ -7,7 +7,6 @@
 
 import UIKit
 import ReSwift
-import ReSwiftRouter
 
 final class ToDoListVC: UIViewController {
 
@@ -48,12 +47,6 @@ extension ToDoListVC: StoreSubscriber {
     }
 
 }
-
-//extension ToDoListVC: Routable {
-//
-//    static let identifier = "ToDoListVC"
-//
-//}
 
 extension ToDoListVC: UITableViewDelegate {
 

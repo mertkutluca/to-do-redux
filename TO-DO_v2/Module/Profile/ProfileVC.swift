@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ReSwiftRouter
 
 final class ProfileVC: UIViewController {
 
@@ -15,10 +14,4 @@ final class ProfileVC: UIViewController {
         view = ProfileView()
     }
     
-}
-
-extension ProfileVC: Routable {
-
-    static let identifier = "ProfileVC"
-
 }

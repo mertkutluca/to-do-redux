@@ -6,26 +6,7 @@
 //
 
 import UIKit
-import ReSwiftRouter
 
 final class ToDoNavigationController: UINavigationController {
-    
-}
-
-extension ToDoNavigationController: Routable {
-
-    static let identifier = "ToDoNavigationController"
-
-//    func pushRouteSegment(_ routeElementIdentifier: RouteElementIdentifier, animated: Bool, completionHandler: @escaping RoutingCompletionHandler) -> Routable {
-//        if (routeElementIdentifier == ToDoDetailVC.identifier) {
-//            completionHandler()
-//            return ToDoDetailVC()
-//        }
-//        fatalError()
-//    }
-//
-//    func changeRouteSegment(_ from: RouteElementIdentifier, to: RouteElementIdentifier, animated: Bool, completionHandler: @escaping RoutingCompletionHandler) -> Routable {
-//        return ToDoDetailVC()
-//    }
     
 }

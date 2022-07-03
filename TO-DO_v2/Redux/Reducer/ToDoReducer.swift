@@ -6,7 +6,6 @@
 //
 
 import ReSwift
-import ReSwiftRouter
 
 fileprivate let initialToDosForTest: [ToDo] = [
     ToDo.dummy(index: 1),
@@ -22,8 +21,8 @@ fileprivate let initialToDosForTest: [ToDo] = [
 
 func AppReducer(action: Action, state: AppState?) -> AppState {
     return AppState(
-        todos: toDoReducer(action: action, todos: state?.todos ?? initialToDosForTest),
-        navigationState: NavigationReducer.handleAction(action, state: state?.navigationState)
+        todos: toDoReducer(action: action, todos: state?.todos ?? initialToDosForTest)
+//        navigationState: NavigationReducer.handleAction(action, state: state?.navigationState)
     )
 }
 
