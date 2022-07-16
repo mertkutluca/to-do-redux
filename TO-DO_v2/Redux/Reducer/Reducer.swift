@@ -13,23 +13,23 @@ func AppReducer(action: Action, state: AppState?) -> AppState {
 }
 
 func toDoReducer(action: Action, todos: [ToDo]?) -> [ToDo] {
-    var _todos = todos ?? []
+    var todos = todos ?? []
 
     switch action {
     case let addAction as AddToDoAction:
-        _todos.append(addAction.toDoToAdd)
+        todos.append(addAction.toDoToAdd)
     case let removeAction as RemoveToDoAction:
-        _todos.removeAll(where: {
+        todos.removeAll(where: {
             $0.id == removeAction.id
         })
     case let updateAction as UpdateToDoAction:
-        _todos.removeAll(where: {
+        todos.removeAll(where: {
             $0.id == updateAction.id
         })
-        _todos.append(updateAction.updatedToDo)
+        todos.append(updateAction.updatedToDo)
     default:
         break
     }
 
-    return _todos
+    return todos
 }

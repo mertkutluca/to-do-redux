@@ -35,18 +35,13 @@ final class App: NSObject {
         state: App.initialState
     )
 
-    var toDoListVC: ToDoListVC!
-    var profileVC: ProfileVC!
-
-    var toDoNavigationVC: UINavigationController!
-
     func start(with window: UIWindow) {
         let tabBarVC = UITabBarController()
-        toDoListVC = ToDoListVC()
-        profileVC = ProfileVC()
+        let toDoListVC = ToDoListVC()
+        let profileVC = ProfileVC()
         toDoListVC.title = "To Do List"
         profileVC.title = "Profile"
-        toDoNavigationVC = ToDoNavigationController(rootViewController: toDoListVC)
+        let toDoNavigationVC = ToDoNavigationController(rootViewController: toDoListVC)
         tabBarVC.viewControllers = [toDoNavigationVC, profileVC]
 
         window.rootViewController = tabBarVC
