@@ -7,6 +7,17 @@
 
 import UIKit
 
-final class ToDoNavigationController: UINavigationController {
-    
+final class ToDoNavigationController: UINavigationController {//}, StoreSubscriber {
+
+//    var currentNavState: ToDoNavigationState = .list
+//
+//    func newState(state: State) {
+//        go(target: state.n)
+//    }
+//
+//    private func go(target: ToDoNavigationState) {
+//        if target.navigationIndex < currentNavState {
+//
+//        }
+//    }
 }

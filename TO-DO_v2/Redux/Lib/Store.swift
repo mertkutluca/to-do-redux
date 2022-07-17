@@ -13,14 +13,10 @@ protocol State {}
 
 typealias Reducer<StateType: State> = (_ action: Action, _ state: StateType?) -> StateType
 
-protocol StoreSubscriber: AnyObject {
-    func newState(state: State)
-}
-
 final class Store<StateType: State> {
     var reducer: Reducer<StateType>
     var state: StateType?
-    var subscribers: [StoreSubscriber] = []
+    var subscribers: [AnyStoreSubscriber] = []
 
     init(reducer: @escaping Reducer<StateType>, state: StateType?) {
         self.reducer = reducer
@@ -29,15 +25,15 @@ final class Store<StateType: State> {
 
     func dispatch(_ action: Action) {
         state = reducer(action, state)
-        subscribers.forEach { $0.newState(state: state!) }
+        subscribers.forEach { $0._newState(state: state!) }
     }
 
-    func subscribe(_ newSubscriber: StoreSubscriber) {
+    func subscribe(_ newSubscriber: AnyStoreSubscriber) {
         subscribers.append(newSubscriber)
-        subscribers.forEach { $0.newState(state: state!) }
+        subscribers.forEach { $0._newState(state: state!) }
     }
     
-    func unsubscribe(_ subscriber: StoreSubscriber) {
+    func unsubscribe(_ subscriber: AnyStoreSubscriber) {
      for (index, value ) in subscribers.enumerated() where value === subscriber {
       if index < subscribers.count {
         self.subscribers.remove(at: index)
