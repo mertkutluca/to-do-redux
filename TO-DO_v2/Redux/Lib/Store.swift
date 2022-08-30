@@ -14,9 +14,9 @@ protocol State {}
 typealias Reducer<StateType: State> = (_ action: Action, _ state: StateType?) -> StateType
 
 final class Store<StateType: State> {
-    var reducer: Reducer<StateType>
-    var state: StateType?
-    var subscribers: [AnyStoreSubscriber] = []
+    private let reducer: Reducer<StateType>
+    private(set) var state: StateType?
+    private var subscribers: [AnyStoreSubscriber] = []
 
     init(reducer: @escaping Reducer<StateType>, state: StateType?) {
         self.reducer = reducer
