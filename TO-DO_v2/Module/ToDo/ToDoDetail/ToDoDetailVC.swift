@@ -24,14 +24,31 @@ final class ToDoDetailVC: UIViewController {
         super.loadView()
         title = "To Do Detail"
         let v = ToDoDetailView()
-
-        if let todo = app.mainStore.state?.todos.first(where: { $0.id == self.id }) {
-            v.setup(title: todo.title, desc: todo.desc)
-        }
-
         v.userInteraction = self
 
         view = v
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        app.mainStore.subscribe(self)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        app.mainStore.unsubscribe(self)
+    }
+
+}
+
+extension ToDoDetailVC: StoreSubscriber {
+    
+    typealias StateType = AppState
+
+    func newState(state: AppState) {
+        if let todo = state.todos.first(where: { $0.id == self.id }) {
+            (view as? ToDoDetailView)?.setup(title: todo.title, desc: todo.desc)
+        }
     }
 
 }

@@ -15,7 +15,7 @@ typealias Reducer<StateType: State> = (_ action: Action, _ state: StateType?) ->
 
 final class Store<StateType: State> {
     private let reducer: Reducer<StateType>
-    private(set) var state: StateType?
+    private var state: StateType?
     private var subscribers: [AnyStoreSubscriber] = []
 
     init(reducer: @escaping Reducer<StateType>, state: StateType?) {
