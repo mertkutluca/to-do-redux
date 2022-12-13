@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftRedux
 
 let app: App = App()
 
