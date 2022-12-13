@@ -11,6 +11,10 @@ final class ToDoListVC: UIViewController {
 
     private var todos: [ToDo] = []
 
+    private var todoListView: ToDoListView? {
+        return view as? ToDoListView
+    }
+
     override func loadView() {
         let v = ToDoListView()
         v.delegate = self
@@ -41,7 +45,7 @@ extension ToDoListVC: StoreSubscriber {
     
     func newState(state: AppState) {
         todos = state.todos
-        (view as? ToDoListView)?.reload()   // delete insert rows have to be use to implement animations
+        todoListView?.reload()   // delete insert rows have to be use to implement animations
     }
 
 }

@@ -11,6 +11,10 @@ final class ToDoDetailVC: UIViewController {
 
     private let id: String?
 
+    private var todoDetailView: ToDoDetailView? {
+        return view as? ToDoDetailView
+    }
+
     init(id: String? = nil) {
         self.id = id
         super.init(nibName: nil, bundle: nil)
@@ -47,7 +51,7 @@ extension ToDoDetailVC: StoreSubscriber {
 
     func newState(state: AppState) {
         if let todo = state.todos.first(where: { $0.id == self.id }) {
-            (view as? ToDoDetailView)?.setup(title: todo.title, desc: todo.desc)
+            todoDetailView?.setup(title: todo.title, desc: todo.desc)
         }
     }
 
