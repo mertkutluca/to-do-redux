@@ -30,7 +30,6 @@
 		B8E3ACD12868E5970034E45C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E3ACD02868E5970034E45C /* ProfileView.swift */; };
 		B8E3ACD32868E65C0034E45C /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E3ACD22868E65C0034E45C /* ProfileVC.swift */; };
 		B8EABDE82948A618007F347C /* SwiftRedux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FC5BA92948A4920024AE8D /* SwiftRedux.framework */; };
-		B8EABDE92948A618007F347C /* SwiftRedux.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B8FC5BA92948A4920024AE8D /* SwiftRedux.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B8F8F645286A4DCA007083B1 /* ToDoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8F644286A4DCA007083B1 /* ToDoDetailView.swift */; };
 		B8F8F647286A5083007083B1 /* ToDoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8F646286A5083007083B1 /* ToDoDetailVC.swift */; };
 		CA1DB20CCCF888B9AB8D76FC /* Pods_TO_DO_v2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34584FBF16C84D3964482E85 /* Pods_TO_DO_v2Tests.framework */; };
@@ -50,6 +49,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = B842EB0A2863AE2900141D91;
 			remoteInfo = "TO-DO_v2";
+		};
+		B8AAB98629BC9E56007D58E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8AAB98129BC9E56007D58E4 /* SwiftRedux.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B8FC5B892948A43C0024AE8D;
+			remoteInfo = SwiftRedux;
+		};
+		B8AAB98829BC9E56007D58E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8AAB98129BC9E56007D58E4 /* SwiftRedux.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B8FC5B932948A43D0024AE8D;
+			remoteInfo = SwiftReduxTests;
 		};
 		B8FC5BA82948A4920024AE8D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -74,7 +87,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B8EABDE92948A618007F347C /* SwiftRedux.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +113,7 @@
 		B842EB2B2863AE4000141D91 /* TO-DO_v2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TO-DO_v2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B842EB2F2863AE4000141D91 /* TO_DO_v2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TO_DO_v2UITests.swift; sourceTree = "<group>"; };
 		B842EB312863AE4000141D91 /* TO_DO_v2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TO_DO_v2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B8AAB98129BC9E56007D58E4 /* SwiftRedux.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftRedux.xcodeproj; path = ../SwiftRedux/SwiftRedux.xcodeproj; sourceTree = "<group>"; };
 		B8B0A58B286B8CCB007007D9 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B8B0A58D286B934C007007D9 /* ToDoNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoNavigationController.swift; sourceTree = "<group>"; };
 		B8B400B32863B5F000A4EDB0 /* ToDoListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListVC.swift; sourceTree = "<group>"; };
@@ -176,6 +189,7 @@
 		B842EB022863AE2900141D91 = {
 			isa = PBXGroup;
 			children = (
+				B8AAB98129BC9E56007D58E4 /* SwiftRedux.xcodeproj */,
 				B842EB0D2863AE2900141D91 /* TO-DO_v2 */,
 				B842EB242863AE4000141D91 /* TO-DO_v2Tests */,
 				B842EB2E2863AE4000141D91 /* TO-DO_v2UITests */,
@@ -234,6 +248,15 @@
 				B842EB192863AE3E00141D91 /* LaunchScreen.storyboard */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		B8AAB98229BC9E56007D58E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAB98729BC9E56007D58E4 /* SwiftRedux.framework */,
+				B8AAB98929BC9E56007D58E4 /* SwiftReduxTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		B8B0A589286B8C9A007007D9 /* Util */ = {
@@ -456,6 +479,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = B8AAB98229BC9E56007D58E4 /* Products */;
+					ProjectRef = B8AAB98129BC9E56007D58E4 /* SwiftRedux.xcodeproj */;
+				},
+				{
 					ProductGroup = B8FC5BA42948A4920024AE8D /* Products */;
 					ProjectRef = B8FC5BA32948A4920024AE8D /* SwiftRedux.xcodeproj */;
 				},
@@ -470,6 +497,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		B8AAB98729BC9E56007D58E4 /* SwiftRedux.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftRedux.framework;
+			remoteRef = B8AAB98629BC9E56007D58E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B8AAB98929BC9E56007D58E4 /* SwiftReduxTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftReduxTests.xctest;
+			remoteRef = B8AAB98829BC9E56007D58E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		B8FC5BA92948A4920024AE8D /* SwiftRedux.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
